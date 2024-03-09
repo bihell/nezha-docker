@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  dashboard:
+    image: registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard
+    restart: always
+    volumes:
+      - ./data:/dashboard/data
+      - ./static-custom/static:/dashboard/resource/static/custom:ro
+      - ./theme-custom/template:/dashboard/resource/template/theme-custom:ro
+      - ./dashboard-custom/template:/dashboard/resource/template/dashboard-custom:ro
+    ports:
+      - 9001:80
+      - 5555:5555
